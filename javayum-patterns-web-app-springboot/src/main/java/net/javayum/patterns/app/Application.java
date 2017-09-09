@@ -41,7 +41,7 @@ public class Application {
 
         // applicztion.properties is read by defaultr
         Environment environment = applicationContext.getEnvironment();
-        logger.info(environment.getProperty("net.javayum.pattern.app.springboot.property"));
+        logger.info(environment.getProperty("net.javayum.patterns.app.springboot.property"));
 
         //active profiles are set in application.properties
         Collection<String> profiles = Arrays.asList(environment.getActiveProfiles());
