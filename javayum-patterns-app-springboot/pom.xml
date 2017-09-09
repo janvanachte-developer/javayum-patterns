@@ -12,8 +12,9 @@
     <artifactId>javayum-patterns-app-springboot</artifactId>
 
     <properties>
-        <org.apache.logging.log4j.version>2.7</org.apache.logging.log4j.version>
         <org.springframework.version>4.3.9.RELEASE</org.springframework.version>
+        <org.springframework.boot.version>1.5.4.RELEASE</org.springframework.boot.version>
+        <org.apache.logging.log4j.version>2.7</org.apache.logging.log4j.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -22,12 +23,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.3.9.RELEASE</version>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>1.5.4.RELEASE</version>
+            <version>${org.springframework.boot.version}</version>
         </dependency>
         <dependency>
             <!-- includes org.slf4j.api and log4j2.api -->
