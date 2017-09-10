@@ -1,5 +1,6 @@
 package net.javayum.patterns.springenvironment;
 
+import net.javayum.patterns.springenvironment.domain.spring.UpdateablePropertiesPropertySource;
 import org.apache.commons.configuration.DatabaseConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,29 +24,27 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource(value = { "classpath:application.properties" }, ignoreResourceNotFound=true)
-public class DatabaseSpringEnvironmentConfiguration {
-    private static final Logger log = LoggerFactory.getLogger(DatabaseSpringEnvironmentConfiguration.class);
+public class DatabaseBackedSpringEnvironmentConfiguration {
+
+    private static final Logger log = LoggerFactory.getLogger(DatabaseBackedSpringEnvironmentConfiguration.class);
 
     @Autowired
     private Environment env;
 
     @PostConstruct
     public void initializeDatabasePropertySourceUsage() {
+
         MutablePropertySources propertySources = ((ConfigurableEnvironment) env).getPropertySources();
 
         try {
-            //dataSource, Table Name, Key Column, Value Column
             DatabaseConfiguration databaseConfiguration = new DatabaseConfiguration(dataSource(), "TA_PROPERTIES", "KEY", "VALUE");
 
-            //CommonsConfigurationFactoryBean comes from https://java.net/projects/springmodules/sources/svn/content/tags/release-0_8/projects/commons/src/java/org/springmodules/commons/configuration/CommonsConfigurationFactoryBean.java?rev=2110
-            //Per https://jira.spring.io/browse/SPR-10213 I chose to just copy the raw source into our project
             CommonsConfigurationFactoryBean commonsConfigurationFactoryBean = new CommonsConfigurationFactoryBean(databaseConfiguration);
 
             Properties dbProps = (Properties) commonsConfigurationFactoryBean.getObject();
-            PropertiesPropertySource dbPropertySource = new PropertiesPropertySource("dbPropertySource", dbProps);
 
-            //By being First, Database Properties take precedence over all other properties that have the same key name
-            //You could put this last, or just in front of the application.properties if you wanted to...
+            PropertiesPropertySource dbPropertySource = new UpdateablePropertiesPropertySource("dbPropertySource", dbProps);
+
             propertySources.addFirst(dbPropertySource);
         } catch (Exception e) {
             log.error("Error during database properties setup", e);
