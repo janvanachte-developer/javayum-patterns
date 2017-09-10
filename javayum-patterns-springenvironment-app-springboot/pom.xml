@@ -14,6 +14,7 @@
     <properties>
         <org.springframework.version>4.3.9.RELEASE</org.springframework.version>
         <org.springframework.boot.version>1.5.4.RELEASE</org.springframework.boot.version>
+        <com.h2database.version>1.4.196</com.h2database.version>
         <org.apache.logging.log4j.version>2.7</org.apache.logging.log4j.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -30,6 +31,18 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${org.springframework.boot.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${com.h2database.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
         <dependency>
             <!-- includes org.slf4j.api and log4j2.api -->
             <groupId>org.apache.logging.log4j</groupId>
@@ -41,6 +54,20 @@
             <artifactId>log4j-core</artifactId>
             <version>${org.apache.logging.log4j.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springmodules/spring-modules-jakarta-commons -->
+        <dependency>
+            <groupId>org.springmodules</groupId>
+            <artifactId>spring-modules-jakarta-commons</artifactId>
+            <version>0.8</version>
+        </dependency>
+
     </dependencies>
 
 </project>

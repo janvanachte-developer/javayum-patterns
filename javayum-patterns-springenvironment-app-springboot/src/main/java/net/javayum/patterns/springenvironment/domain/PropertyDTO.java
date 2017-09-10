@@ -1,4 +1,4 @@
-package net.javayum.patterns.domain;
+package net.javayum.patterns.springenvironment.domain;
 
 public class PropertyDTO {
 

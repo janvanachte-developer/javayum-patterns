@@ -1,4 +1,4 @@
-package net.javayum.patterns.web.jaxrs.spring;
+package net.javayum.patterns.springenvironment.web.jaxrs.spring;
 
 import org.springframework.context.annotation.Configuration;
 

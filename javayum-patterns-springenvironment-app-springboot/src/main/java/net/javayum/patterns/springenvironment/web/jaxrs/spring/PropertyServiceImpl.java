@@ -1,8 +1,6 @@
-package net.javayum.patterns.web.jaxrs.spring;
+package net.javayum.patterns.springenvironment.web.jaxrs.spring;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-import net.javayum.patterns.domain.PropertyDTO;
+import net.javayum.patterns.springenvironment.domain.PropertyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
