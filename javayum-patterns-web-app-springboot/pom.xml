@@ -41,6 +41,13 @@
             <artifactId>log4j-core</artifactId>
             <version>${org.apache.logging.log4j.version}</version>
         </dependency>
+
+        <!-- eu.europa.ec.digit.ecp.web.property.ws.rest.dto.hateoas -->
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+            <version>0.19.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
 </project>
